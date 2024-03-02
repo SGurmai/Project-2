@@ -36,3 +36,38 @@ header > h1 {
         #f64f59
     );
 }
+
+#quiz-box {
+    max-width: 40rem;
+    max-height: 30rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.652rem rgba(0, 0, 0, 0.1);
+    padding: 1.25;
+    text-align: center;
+    
+}
+
+#question {
+    font-size: 1rem;
+    margin-bottom: 0.938rem;
+}
+
+input {
+    font-size: 1rem;
+}
+
+button {
+    background-color: #1d41b8;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #68119b;
+}
