@@ -1,4 +1,4 @@
-// Quiz questions here
+// Quiz questions
 const quizData = [
     {question: "17 + 25 =", answer: 42 },
     {question: "48 - 23 =", answer: 25 },
@@ -29,11 +29,29 @@ const quizData = [
 
 let currentQuestion = 0;
 
+// Function to load question onto the page
+function loadQuestion() {
+    const questionElement = document.getElementById("question");
+    const answerElement = document.getElementById("answer");
+    const resultElement = document.getElementById("result");
+
+    // Display the current question
+    questionElement.innerText = quizData[currentQuestion].question;
+
+    // Clear previous answer and result
+    answerElement.value = "";
+    resultElement.innerText = "";
+}
+
+// Call loadQuestion function when the page loads to display the first question
+window.onload = loadQuestion;
+
+// Function to check the user's answer
 function checkAnswer() {
     const userAnswer = parseInt(document.getElementById("answer").value);
     if (!isNaN(userAnswer)) {
         if (userAnswer === quizData[currentQuestion].answer) {
-            document.getElementById("result").innerText = "correct!";
+            document.getElementById("result").innerText = "Correct!";
         } else {
             document.getElementById("result").innerText = "Wrong!";
         }
@@ -49,4 +67,3 @@ function checkAnswer() {
         alert("Please enter a valid number.");
     }
 }
-
