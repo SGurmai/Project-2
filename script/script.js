@@ -49,21 +49,29 @@ window.onload = loadQuestion;
 // Function to check the user's answer
 function checkAnswer() {
     const userAnswer = parseInt(document.getElementById("answer").value);
+    const resultElement = document.getElementById("result");
+    
     if (!isNaN(userAnswer)) {
         if (userAnswer === quizData[currentQuestion].answer) {
-            document.getElementById("result").innerText = "Correct!";
+            resultElement.innerText = "Correct!";
         } else {
-            document.getElementById("result").innerText = "Wrong!";
+            resultElement.innerText = "Wrong!";
         }
+    } else {
+        resultElement.innerText = "Please enter a valid number.";
+        return; // Exit the function if the user input is not a number
+    }
+
+    // Display the result for a moment before proceeding to the next question
+    setTimeout(function() {
+        resultElement.innerText = ""; // Clear the result message
         currentQuestion++;
         if (currentQuestion < quizData.length) {
             loadQuestion();
         } else { 
             document.getElementById("question").innerText = "Quiz completed!";
             document.getElementById("answer").style.display = "none";
-            document.getElementById("result").innerText = "Well done!";
+            resultElement.innerText = "Well done!";
         }
-    } else {
-        alert("Please enter a valid number.");
-    }
+    }, 1500); // Display the result for 1.5 seconds before moving to the next question
 }
