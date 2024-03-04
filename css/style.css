@@ -11,10 +11,10 @@ body {
     text-align: center;
     gap: 3rem;
     color: rgb(3, 2, 2);
-    background: linear-gradient(#db4040, #ffffff);
+    background: linear-gradient(#ce7575, #ffffff);
     margin: 2rem;
     border-radius: 0.5rem;
-    
+    margin-bottom: 5rem;
 }
 
 /* Style for paragraph inside the header */
@@ -37,7 +37,8 @@ header > h1 {
 .section {
     margin: 3rem;
     border-radius: 0.5rem;
-    background: linear-gradient( #ffffff, #db4040);
+    background: linear-gradient( #ffffff, #ce7575);
+    padding: 1rem;
 }
 
 /* Quiz box style and position */
@@ -48,13 +49,12 @@ header > h1 {
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.652rem rgba(0, 0, 0, 0.3);
-    padding: 1.25;
+    padding-bottom: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-
 }
 
 #question {
@@ -67,7 +67,7 @@ input {
 }
 
 button {
-    background-color: #1d41b8;
+    background-color: #ce7575;
     color: white;
     padding: 10px 20px;
     margin-top: 10px;
@@ -78,5 +78,5 @@ button {
 }
 
 button:hover {
-    background-color: #68119b;
+    background-color: #b80707;
 }

@@ -3,7 +3,6 @@ const quizData = [
     {question: "17 + 25 =", answer: 42 },
     {question: "48 - 23 =", answer: 25 },
     {question: "14 x 13 =", answer: 182 },
-    {question: "72 ÷ 8 =", answer: 9 },
     {question: "33 + 47 =", answer: 80 },
     {question: "96 - 57 =", answer: 39 },
     {question: "23 x 19 =", answer: 437 },
@@ -12,6 +11,7 @@ const quizData = [
     {question: "82 - 39 =", answer: 43 },
     {question: "28 x 16 =", answer: 448 },
     {question: "144 ÷ 12 =", answer: 12 },
+    {question: "72 ÷ 8 =", answer: 9 },
     {question: "93 + 57 =", answer: 150 },
     {question: "127 - 84 =", answer: 43 },
     {question: "36 x 28 =", answer: 1008 },
@@ -28,6 +28,8 @@ const quizData = [
 ];
 
 let currentQuestion = 0;
+let correctAnswers = 0;
+let incorrectAnswers = [];
 
 // Function to load question onto the page
 function loadQuestion() {
@@ -59,19 +61,26 @@ function checkAnswer() {
         }
     } else {
         resultElement.innerText = "Please enter a valid number.";
-        return; // Exit the function if the user input is not a number
+        return; 
     }
 
     // Display the result for a moment before proceeding to the next question
     setTimeout(function() {
-        resultElement.innerText = ""; // Clear the result message
+        resultElement.innerText = ""; 
         currentQuestion++;
         if (currentQuestion < quizData.length) {
             loadQuestion();
         } else { 
+            // Quiz completed, display correct and incorrect answers
             document.getElementById("question").innerText = "Quiz completed!";
             document.getElementById("answer").style.display = "none";
-            resultElement.innerText = "Well done!";
+            resultElement.innerText = "Well done! Total correct answers: " + correctAnswers;
+            if (incorrectAnswers.length > 0) {
+                resultElement.innerHTML += "<br><br>Incorrect answers:<br>";
+                incorrectAnswers.forEach(function(item) {
+                    resultElement.innerHTML += item.question + " Correct answer: " + item.correctAnswer + ", Your answer: " + item.userAnswer + "<br>";
+                });
+            }
         }
-    }, 1500); // Display the result for 1.5 seconds before moving to the next question
+    }, 1500);
 }
