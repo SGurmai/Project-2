@@ -1,7 +1,7 @@
 /* Background */
 
 body {
-    font-size: bold;
+    font-weight: bold;
     margin: 0;
 }
 
@@ -79,4 +79,36 @@ button {
 
 button:hover {
     background-color: #b80707;
+}
+
+img {
+    max-width: 50rem;
+    max-height: 30rem;
+    size: 100%;
+}
+
+.navbar {
+    display: inline-block;
+    margin-bottom: 5rem;
+    width: 100%;
+    text-align: center
+}
+
+/* Colour, alignment and padding of the navigation buttons */
+
+.navbar a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Changes the navigation buttons background, colour and font style when hovered over */
+
+.navbar a:hover {
+    background-color: #b80707;
+    color: black;
+    font-weight: bold;
+    font-style: italic;
 }

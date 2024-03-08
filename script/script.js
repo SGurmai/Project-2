@@ -29,7 +29,6 @@ const quizData = [
 
 let currentQuestion = 0;
 let correctAnswers = 0;
-let incorrectAnswers = [];
 
 // Function to load question onto the page
 function loadQuestion() {
@@ -37,10 +36,10 @@ function loadQuestion() {
     const answerElement = document.getElementById("answer");
     const resultElement = document.getElementById("result");
 
-    // Display the current question
+// Display the current question
     questionElement.innerText = quizData[currentQuestion].question;
 
-    // Clear previous answer and result
+// Clear previous answer and result
     answerElement.value = "";
     resultElement.innerText = "";
 }
@@ -64,23 +63,17 @@ function checkAnswer() {
         return; 
     }
 
-    // Display the result for a moment before proceeding to the next question
-    setTimeout(function() {
-        resultElement.innerText = ""; 
-        currentQuestion++;
-        if (currentQuestion < quizData.length) {
-            loadQuestion();
-        } else { 
-            // Quiz completed, display correct and incorrect answers
-            document.getElementById("question").innerText = "Quiz completed!";
-            document.getElementById("answer").style.display = "none";
-            resultElement.innerText = "Well done! Total correct answers: " + correctAnswers;
-            if (incorrectAnswers.length > 0) {
-                resultElement.innerHTML += "<br><br>Incorrect answers:<br>";
-                incorrectAnswers.forEach(function(item) {
-                    resultElement.innerHTML += item.question + " Correct answer: " + item.correctAnswer + ", Your answer: " + item.userAnswer + "<br>";
-                });
-            }
-        }
-    }, 1500);
+// Display the result for a moment before proceeding to the next question
+setTimeout(function() {
+    resultElement.innerText = ""; 
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+        loadQuestion();
+    } else { 
+        // Quiz completed, display correct answers
+        document.getElementById("question").innerText = "Quiz completed!";
+        document.getElementById("answer").style.display = "none";
+        resultElement.innerText = "Well done! Total correct answers: " + correctAnswers;
+    }
+}, 1500);
 }
